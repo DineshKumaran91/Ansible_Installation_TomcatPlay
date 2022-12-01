@@ -1,0 +1,60 @@
+---
+- name: tomcat install playbook
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks: 
+    - name: install open jdk
+      ansible.builtin.yum:
+              name: 
+                - java-1.8.0-openjdk-devel
+                - wget
+              state : present
+    - name: Ensure group "tomcat" exists
+      ansible.builtin.group:
+               name: tomcat
+               state: present
+               system: true
+    - name: Add tomcat user
+      ansible.builtin.user:
+              name: tomcat
+              home: /usr/share/tomcat
+              system: true
+              shell: /bin/bash
+              group: tomcat
+    - name: Download tomcat
+      ansible.builtin.command: wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.54/bin/apache-tomcat-9.0.54.tar.gz
+    - name: Untar the tomcat package
+      ansible.builtin.command: sudo tar xvf /home/ec2-user/apache-tomcat-9.0.54.tar.gz -C /usr/share/
+    - name: Get stats of a file
+      ansible.builtin.stat:
+        path: /usr/share/apache-tomcat-9.0.54
+      register: linkfile
+    - debug: 
+        var: linkfile
+    - name: softlink
+      ansible.builtin.command: ln -s /usr/share/apache-tomcat-9.0.54 /usr/share/apache-tomcat
+      when: linkfile.stat.exists = False
+    - name: update tomcat folder permission
+      ansible.builtin.command: chown -R tomcat:tomcat /usr/share/apache-tomcat
+    - name: update apache-tomcat-9.0.54 folder permission
+      ansible.builtin.command: chown -R tomcat:tomcat /usr/share/apache-tomcat-9.0.54
+    - name: Copy tomcat service file
+      ansible.builtin.copy: 
+        src: /home/ec2-user/tomcat.service
+        dest: /etc/systemd/system/
+    - name: Copy tomcat-users.xml
+      ansible.builtin.copy: 
+        src: /home/ec2-user/tomcat-users.xml
+        dest: /usr/share/apache-tomcat/conf/
+    - name: daemon reload
+      ansible.builtin.command: sudo systemctl daemon-reload
+    - name: Start tomcat
+      ansible.builtin.service:
+        name: tomcat
+        state: started
+    - name: enable tomcat
+      ansible.builtin.command: sudo systemctl enable tomcat
+
+    
+    

@@ -1,0 +1,9 @@
+---
+- name : Install httpd and start the service
+  hosts : all
+  become : true
+  tasks : 
+    - name : Install HTTPD
+      ansible.builtin.yum:
+        name: httpd
+        state: latest

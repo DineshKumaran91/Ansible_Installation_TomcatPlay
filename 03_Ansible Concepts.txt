@@ -1,0 +1,13 @@
+ - Control node --> Any machine with ansible installed(can have multiple control node). Can't uses windows machine as control node
+ 
+ - Managed node --> Hosts are managed nodes which all needs configuration changes
+
+ - Inevtory --> List of managed nodes( is simple text file which have details of all the servers)
+
+ -  Collections --> Distribution format for ansible content can include Playbooks,Role,Modules and Plugins.. can be stored and used from Ansible Galaxy
+
+ - Modules or Roles --> Unit of code. Module can be stored and used manytimes.can be parameterized
+
+ - Task --> Unit of Action.. Each steps mentioned in playbook is tasks
+
+ - Playbook --> Ordered list of tasks.. can run those tasks ordered repeatedly. Playbooks written in YAML format 

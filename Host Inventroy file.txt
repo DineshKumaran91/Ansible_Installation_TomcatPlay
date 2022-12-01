@@ -1,0 +1,14 @@
+ - We can manage only servers it explicitly knows
+ - Each host needs names and informations about each
+ - Passes additional info for ansible how to connect
+ - Default location /etc/ansible/hosts
+
+Inventory behavioral Parameters:
+ - ansible_connection:Connection typr of server
+ - ansible_host:name of the host
+ - ansible_port:the connection port number
+ - ansible_user:user names uses to connect
+ - ansible_password:pwd for authenticate
+ - ansible_become:equals to sudo (ansible_become_method:sets privilege escalation method)
+ - ansible_become_user: like we can provide ansible_become_root
+ - ansible_become_password

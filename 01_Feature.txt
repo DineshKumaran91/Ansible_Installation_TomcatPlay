@@ -1,0 +1,18 @@
+ - Is opensource Configuration management proviioning tool
+ - It use the SSH to connect to clients and make configurations
+ - It's Push based, (if we invoke then only it make changes)
+
+Why Ansible:
+ - No Agent needs in client to connect
+ - Idempotent --> if change needed it executes or the step will get skip
+ - Declarative not procedural
+ - Tiny learning curve --> Easy to learn
+
+Ansible Used cases:
+ - Provisioning(app)
+ - Configuration Management
+ - App Developemnt
+ - Continuous Delivery
+ - Security and compliance
+ - Orchetration
+

@@ -1,0 +1,6 @@
+Iteration over simple list
+ -
+  loop:
+	-user1
+	-user2
+with_list,with_item also a loop

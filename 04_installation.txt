@@ -1,0 +1,21 @@
+(pre-requisties) 
+- Enable Python 3.8 and 
+#amazon-linux-extras | grep -i python
+#sudo amazon-linux-extras enable python3.8
+#sudo yum install python3.8
+
+ - create softlink of python3 --> python 3.8
+$which python3
+$ls -l python*
+$cd /usr/bin -->  Default python location
+$sudo rm -f python3
+$sudo ln -s python3.8 python3
+
+
+
+ - Download Pip
+$ sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python3 get-pip.py
+
+ - Install Ansible using pip module
+$ sudo python3 -m pip install ansible

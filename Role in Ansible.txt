@@ -1,0 +1,8 @@
+$ansible-galaxy init tomcat --> will create a role with name of tomcat 
+--> Inide tomcat folder --> tasks,default,meta,handlers,files,vars,test,template
+
+ - tasks --> We can keep only tasks inside main.yml file here
+ - files --> user.xml,service.xml can be stored here
+ - templates --> jinga2 temps
+ - handlers --> Lat task in task list can be defined in handler for Notifying
+

@@ -1,0 +1,1 @@
+Ansible Adhoc commands examples --> https://www.middlewareinventory.com/blog/ansible-ad-hoc-commands/

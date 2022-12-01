@@ -1,0 +1,3 @@
+When is the condition to use
+ - is also a vaiable if the conditions is true then task executes
+ - ansible_facts will check the values if true

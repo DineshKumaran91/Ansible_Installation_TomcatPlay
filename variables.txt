@@ -1,0 +1,24 @@
+1 - Simple variables:
+            --> rnt_ins_path: /opt/my_app
+calling it  --> '{{rnt_ins_path}}/foo.cfg'
+
+
+2 - List Variables:
+example:
+ region
+   - north
+   - south
+   - midwest
+calling it --> region:"{{region[0]}}"
+
+3 - Dictionary Variables:
+example:
+foo:
+  fo1:one
+  fo2:two
+calling it --> {{foo.fo1}}
+
+4 - Registered Variables:
+example:
+Take output of the previous cmd into a variable using "register" and use it using "when" on other task in same play
+only valid until the play book runs

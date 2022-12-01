@@ -1,0 +1,5 @@
+ - Define vaiable in inventroy
+ - Define Vaiable in play
+ - Define variable in vars folder under a role
+ - Runtime variables
+    ansible-playboon -i sites.yml --extra-vars "version=12 othervar=foo"

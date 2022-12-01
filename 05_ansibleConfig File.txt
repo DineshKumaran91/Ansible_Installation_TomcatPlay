@@ -1,0 +1,41 @@
+ - Important file
+ - When we run any ansible command it looks for ansible.cfg in below locations
+     --> at ANSIBLE_CONFIG(Environment variable)
+     --> current directory
+     --> ~/ansible.cfg (home directory)
+     --> /etc/ansible/ansible.cfg (default location)
+
+
+https://docs.ansible.com/ansible/latest/reference_appendices/config.html
+
+
+# some basic default values...
+
+#inventory      = /etc/ansible/hosts
+#library        = /usr/share/my_modules/
+#remote_tmp     = $HOME/.ansible/tmp
+#local_tmp      = $HOME/.ansible/tmp
+#forks          = 5
+#poll_interval  = 15
+#sudo_user      = root
+#ask_sudo_pass = True
+#ask_pass      = True
+#transport      = smart
+#remote_port    = 22
+#module_lang    = C
+#module_set_locale = False
+#gather_fact = Fale
+#become = True
+#ssh_arg = "-C -F ./ssh.cfg -o ControlMaster=auto -o ControlPersist=60s"
+
+
+Config file for our use:
+[defaults]
+inventory=/etc/ansible/hosts
+become = True
+gather_fact = Fale
+
+[ssh_connection]
+ssh_args ="-C -F ./ssh.cfg -o ControlMaster=auto -o ControlPersist=60s"
+host_key_checking = False
+

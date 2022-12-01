@@ -1,0 +1,11 @@
+         --> Host Inventory
+Ansible  --> Playbooks
+         --> Custom Modules
+         --> Core Modules
+         --> Plugins
+         --> Connection plugins(Winrm,SSH)
+
+ - Ansible connects to the hosts using host inverntory and compare the playbook with host configuration for desired state.
+ - All the ansible plugins are written in python
+ - Ansible tower is enterprise version(by IBM)
+ - Ansible AWS also a community UI version
